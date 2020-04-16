@@ -48,7 +48,9 @@ function addSelectedItemToCart() {
   var quantity = document.getElementById('quantity').value; //value is a property of html tags that can have values
   console.log(quantity);
 
-  // TODO: using those, add one item to the Cart
+  // TODO: using those, add one item to the Cart (`cart`)
+  // Cart.prototype.addItem
+  cart.addItem(itemPicked, quantity);
 }
 
 // TODO: Update the cart count in the header nav with the number of items in the Cart
