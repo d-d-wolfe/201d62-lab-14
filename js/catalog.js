@@ -53,12 +53,11 @@ function addSelectedItemToCart() {
   cart.addItem(itemPicked, quantity);
 }
 
-// TODO: Update the cart count in the header nav with the number of items in the Cart
+// Done: Update the cart count in the header nav with the number of items in the Cart
 
 function updateCounter() {
   var getTarget = document.getElementById('itemCount');
-  getTarget.textContent = (cart.items[0].quantity);
-  
+  getTarget.textContent = (' total item quantity: ' + cart.items[0].quantity);
   //We need to retrieve the input data stored in an array cart.items
   // getTarget.push(cart.items[0].quantity);
   console.log(updateCounter);
@@ -68,16 +67,17 @@ function updateCounter() {
 function updateCartPreview() {
   var getOrder = document.getElementById('cartContents');
   var newUlEl = document.createElement('ul');
-  
 
-  // loop goes here
-  var newLiItem = document.createElement('li');
-  newLiItem.textContent = (cart.items[0].product + cart.items[0].quantity);
-  newUlEl.appendChild(newLiItem);
-  getOrder.appendChild(newUlEl);
-  
-  // TODO: Get the item and quantity from the form
-  // TODO: Add a new element to the cartContents div with that information
+//TODO: our own :)  need to delete old items from page before putting new ones on
+  for (var i = 0; i < cart.items.length; i++) {
+    var newLiItem = document.createElement('li');
+    newLiItem.textContent = ('You have ordered: ' + cart.items[i].product + ', in the quantity of: ' + cart.items[i].quantity);
+    newUlEl.appendChild(newLiItem);
+    getOrder.appendChild(newUlEl);
+  }
+
+  //done: get the item and quantity from the form
+  // Done: Add a new element to the cartContents div with that information
 }
 
 // Set up the "submit" event listener on the form.
